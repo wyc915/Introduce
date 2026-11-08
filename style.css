@@ -446,6 +446,50 @@ body.has-cursor .cursor-glow { opacity: 1; }
 .edu__card:hover .edu__thesis { border-color: var(--gray-500); }
 :root[lang="en"] .edu__thesis q { quotes: "“" "”"; }
 
+.edu__roles { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; position: relative; }
+.edu__roles span {
+  font-size: .75rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--gray-200);
+  color: var(--gray-700); background: var(--white); transition: background .4s, color .4s, border-color .4s;
+}
+.edu__card:hover .edu__roles span { background: transparent; color: var(--gray-300); border-color: var(--gray-500); }
+
+/* ========== 研究與學術經歷 ========== */
+.sub-head__note { font-size: .78rem; font-weight: 500; color: var(--gray-500); letter-spacing: .02em; order: 2; white-space: nowrap; }
+.research { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+.research__item {
+  padding: 26px 28px; border-radius: var(--radius); border: 1px solid var(--gray-200); background: var(--white);
+  position: relative; overflow: hidden; transition: border-color .3s, box-shadow .3s;
+}
+.research__item::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gray-900);
+  transform: scaleY(0); transform-origin: top; transition: transform .5s var(--ease);
+}
+.research__item:hover { border-color: var(--gray-300); box-shadow: 0 16px 36px -20px var(--shadow); }
+.research__item:hover::before { transform: scaleY(1); }
+.research__tag { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-500); }
+.research__item h4 { font-size: 1.1rem; margin: 6px 0 8px; }
+.research__item p { font-size: .93rem; color: var(--gray-700); }
+
+.pubs { list-style: none; border-top: 1px solid var(--gray-200); }
+.pub {
+  display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--gray-200);
+  position: relative;
+}
+.pub::after {
+  content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--gray-900);
+  transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease);
+}
+.pub:hover::after { transform: scaleX(1); }
+.pub__meta { display: flex; flex-wrap: wrap; align-items: flex-start; align-content: flex-start; gap: 6px; }
+.pub__year { width: 100%; font-size: 1.4rem; font-weight: 700; color: var(--gray-900); line-height: 1.2; font-variant-numeric: tabular-nums; }
+.pub__badge { font-size: .7rem; font-weight: 600; letter-spacing: .06em; padding: 2px 9px; border-radius: 6px; background: var(--gray-900); color: var(--white); }
+.pub__badge--soft { background: var(--gray-100); color: var(--gray-700); }
+.pub__body h4 { font-size: 1.02rem; line-height: 1.45; margin-bottom: 6px; }
+.pub__venue { font-size: .9rem; color: var(--gray-700); }
+.pub__venue em { font-style: italic; color: var(--gray-900); }
+.pub__authors { font-size: .85rem; color: var(--gray-500); margin-top: 2px; }
+.pub__authors b { color: var(--gray-900); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gray-300); text-underline-offset: 3px; }
+
 /* ========== 應用場景 ========== */
 .domains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .domain {
@@ -614,7 +658,11 @@ body.has-cursor .cursor-glow { opacity: 1; }
   [data-anim="slide-right"] { transform: translateX(-28px); }
 
   .sub-head { margin-top: 64px; }
-  .edu, .skills, .facts { grid-template-columns: 1fr; }
+  .edu, .skills, .facts, .research { grid-template-columns: 1fr; }
+  .pub { grid-template-columns: 1fr; gap: 8px; }
+  .pub__year { width: auto; font-size: 1.1rem; margin-right: 6px; }
+  .sub-head { flex-wrap: wrap; }
+  .sub-head__note { order: 3; width: 100%; white-space: normal; }
   .stack__group { grid-template-columns: 1fr; gap: 10px; }
 
   .footer__inner { grid-template-columns: 1fr; }
@@ -667,7 +715,7 @@ body.has-cursor .cursor-glow { opacity: 1; }
 
   /* 分頁：卡片不切開、標題不落單 */
   .section__head, .sub-head, h2, h3 { break-after: avoid; page-break-after: avoid; }
-  .motto, .stats, .job, .edu__card, .domain, .skill-card, .stack__group, .facts, .contact__inner, .footer { break-inside: avoid; page-break-inside: avoid; }
+  .motto, .stats, .job, .edu__card, .research__item, .pub, .domain, .skill-card, .stack__group, .facts, .contact__inner, .footer { break-inside: avoid; page-break-inside: avoid; }
   /* 頁 1：首屏＋關於＋數據　頁 2：經歷＋學歷　頁 3：場景＋專長＋技術　頁 4：聯絡＋頁尾 */
   #experience, #domains { break-before: page; }
   #domains, #skills { padding: 64px 0; }
