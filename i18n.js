@@ -59,6 +59,8 @@ window.I18N_EN = {
   "edu.bs": "Bachelor's degree",
   "edu.bsSchool": "National Ilan University",
   "edu.bsDept": "B.S., Computer Science and Information Engineering",
+  "edu.projectLabel": "Capstone project",
+  "edu.project": "Skin-Type-Based Skincare Product Recommendation System",
 
   "dom.title": "Domains",
   "dom.mon": "Monitoring",
