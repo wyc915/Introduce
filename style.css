@@ -485,6 +485,17 @@ body.has-cursor .cursor-glow { opacity: 1; }
 .pub__badge { font-size: .7rem; font-weight: 600; letter-spacing: .06em; padding: 2px 9px; border-radius: 6px; background: var(--gray-900); color: var(--white); }
 .pub__badge--soft { background: var(--gray-100); color: var(--gray-700); }
 .pub__body h4 { font-size: 1.02rem; line-height: 1.45; margin-bottom: 6px; }
+.pub__link {
+  color: var(--gray-900);
+  background: linear-gradient(var(--gray-900), var(--gray-900)) no-repeat left bottom / 0% 1px;
+  transition: background-size .4s var(--ease);
+}
+.pub__link:hover { background-size: 100% 1px; }
+.pub__arrow { display: inline-block; margin-left: 6px; font-size: .85em; color: var(--gray-500); transition: transform .3s var(--ease), color .3s; }
+.pub__link:hover .pub__arrow { transform: translate(2px, -2px); color: var(--gray-900); }
+.pub__doi { font-size: .78rem; color: var(--gray-500); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.pub__doi a { color: var(--gray-700); border-bottom: 1px dotted var(--gray-300); transition: color .2s, border-color .2s; }
+.pub__doi a:hover { color: var(--gray-900); border-bottom-color: var(--gray-900); }
 .pub__venue { font-size: .9rem; color: var(--gray-700); }
 .pub__venue em { font-style: italic; color: var(--gray-900); }
 .pub__authors { font-size: .85rem; color: var(--gray-500); margin-top: 2px; }
